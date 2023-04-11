@@ -17,12 +17,6 @@ body
     font-family: 'Dovemayo_gothic';
 }
 
-table
-{
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
 h1 {
     font-family: 'PyeongChangPeace-Bold';
     padding: 2.5vh 0px;
@@ -35,25 +29,45 @@ hr
     margin-top: 1.6rem;
 }
 
-tr, td
+label
 {
+    font-weight: 800;
     font-size: 1.1rem;
 }
 
-.btn
+input
 {
-    margin: 0.4rem;
-    margin-top: 0.6rem;
+    font-size: 1.1rem;
+    margin: 0.5rem;
+    width: 80vw;
+    max-width: 800px;
+    text-align: center;
+    border: 0;
+    outline: none;
 }
 
-#write
+#bno, #contents
 {
-    margin-top: 0.8rem;
-    float: right;
+    background-color: rgba(0, 0, 0, 0.05);
+    border: 1px solid #dee2e6;
 }
 
-a
+#bno, #title
 {
-    text-decoration: none;
-    color: #444444;
+    height: 5vh;
+}
+
+#title
+{
+    border: 1px solid #dee2e6;
+}
+
+#contents
+{
+    height: 43vh;
+}
+
+.btn, a
+{
+    margin: 1.2rem 0.5rem;
 }
