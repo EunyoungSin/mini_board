@@ -13,13 +13,16 @@
 		$page_num = 1;
 	}
 
-	$limit_num = 5;
+    $limit_num = 5;
 
 	// 게시판 정보 테이블 전체 카운트 획득
 	$result_cnt = select_board_info_cnt();
 
 	// max page number
 	$max_page_num = ceil( (int)$result_cnt[0]["cnt"] / $limit_num );
+
+    $prev_page_num = $page_num - 1 > 0? $page_num - 1 : 1;
+    $next_page_num = $page_num + 1 > $max_page_num ? $max_page_num : $page_num + 1;
 
 	// offset
 	$offset = ( $page_num * $limit_num ) - $limit_num;
@@ -46,7 +49,6 @@
     <link href="./css/css.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<section class="notice">
     <p><h1>게시판</h1></p>
     <table class="table table-striped">
         <hr>
@@ -63,8 +65,8 @@
                 {
             ?>
                 <tr>
-                <td><?php echo $recode["board_no"] ?></td>
-                <td><a href="board_update.php?board_no=<?php echo $recode["board_no"] ?>"><?php echo $recode["board_title"] ?></a></td>
+                <td id="first"><?php echo $recode["board_no"] ?></td>
+                <td><a href="board_detail.php?board_no=<?php echo $recode["board_no"] ?>" id="title_link"><?php echo $recode["board_title"] ?></a></td>
                 <td><?php echo $recode["board_write_date"] ?></td>
                 </tr>
             <?php
@@ -72,17 +74,24 @@
             ?>
         </tbody>
     </table>
+
     <div class="d-flex justify-content-center">
+    <button type="button" onclick="location.href='board_list.php?page_num=1'" class="btn btn-default btn">처음</button>
+    <button type="button" onclick="location.href='board_list.php?page_num=<?php echo $prev_page_num ?>'" class="btn btn-default btn">◀</button>
+    <!-- 페이징 번호 -->
     <?php
         for( $i = 1; $i <= $max_page_num; $i++ )
         {
     ?>
-        <a href='board_list.php?page_num=<?php echo $i ?>' class='btn btn-dark btn-sm'><?php echo $i ?></a>
+        <a href='board_list.php?page_num=<?php echo $i ?>' class='btn btn-default btn'><?php echo $i ?></a>
     <?php
         }
     ?>
+    <button type="button" onclick="location.href='board_list.php?page_num=<?php echo $next_page_num ?>'" class="btn btn-default btn">▶</button>
+    <button type="button" onclick="location.href='board_list.php?page_num=<?php echo $max_page_num ?>'" class="btn btn-default btn">끝</button>
     </div>
+
     <button type="submit" class="btn btn-dark" id="write">글쓰기</button>
-</section>
+
 </body>
 </html>

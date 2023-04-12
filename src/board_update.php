@@ -3,6 +3,7 @@
     define( "URL_DB", SRC_ROOT."common/db_common.php" );
     include_once ( URL_DB );
     
+    // Request Method를 획득
     $http_method = $_SERVER["REQUEST_METHOD"];
 
     // GET 일 때
@@ -26,8 +27,14 @@
                 ,"board_contents" => $arr_post["board_contents"]
             );
             
-        $result_info_change = update_board_info_no( $arr_info );
-        $result_info = select_board_info_no( $arr_post["board_no"]);
+		// update
+		$result_cnt = update_board_info_no( $arr_info );
+
+		// select
+		// $result_info = select_board_info_no( $arr_post["board_no"] ); // 0412 del
+
+        header( "Location: board_detail.php?board_no=".$arr_post["board_no"] );
+        exit(); // 36행에서 redirect 했기 때문에 이후의 소스코드는 실행할 필요가 없다.
     }
 ?>
 
@@ -39,8 +46,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>게시판</title>
-    <link href="./css/css_up.css" rel="stylesheet" type="text/css">
+    <title>게시글 수정</title>
+    <link href="./css/css.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <p><h1>게시판</h1></p>
@@ -55,7 +62,9 @@
         <label for="contents">게시글 내용 : </label>
         <input type="text" value="<?php echo $result_info["board_contents"] ?>" id="contents" name="board_contents">
         <br>
-        <button type="submit" class="btn btn-dark" id="write">수정</button>
+        
+        <button type="submit" class="btn btn-dark">완료</button>
+        <a href='board_detail.php?board_no=<?php echo $result_info["board_no"] ?>' class='btn btn-dark btn'>취소</a>
         <a href='board_list.php' class='btn btn-dark btn'>목록</a>
     </form>
 </body>

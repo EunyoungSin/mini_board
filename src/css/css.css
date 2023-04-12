@@ -12,7 +12,6 @@ body
 {
     margin: 1.4rem;
     margin-left: 1.5rem;
-    width: 90%;
     text-align: center;
     font-family: 'Dovemayo_gothic';
 }
@@ -40,10 +39,21 @@ tr, td
     font-size: 1.1rem;
 }
 
-.btn
+td
 {
-    margin: 0.4rem;
-    margin-top: 0.6rem;
+    width: 20vw;
+    vertical-align : middle;
+}
+
+#first
+{
+    width: 10vw;
+}
+
+#title_link
+{
+    text-decoration: none;
+    color: #444444;
 }
 
 #write
@@ -52,8 +62,50 @@ tr, td
     float: right;
 }
 
-a
+label
 {
-    text-decoration: none;
-    color: #444444;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+input
+{
+    font-size: 1.1rem;
+    margin: 0.5rem;
+    width: 80vw;
+    max-width: 800px;
+    text-align: center;
+    border: 0;
+    outline: none;
+}
+
+#bno, #contents
+{
+    background-color: rgba(0, 0, 0, 0.05);
+    border: 1px solid #dee2e6;
+}
+
+#title, #date
+{
+    border: 1px solid #dee2e6;
+}
+
+#bno, #date
+{
+    height : 4vh;
+}
+
+#title
+{
+    height: 5vh;
+}
+
+#contents
+{
+    height: 42vh;
+}
+
+.btn
+{
+    margin: 0.3rem;
 }
