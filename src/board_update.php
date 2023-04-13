@@ -1,6 +1,7 @@
 <?php
     define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board/src/" );
     define( "URL_DB", SRC_ROOT."common/db_common.php" );
+    define( "URL_HEADER", SRC_ROOT."board_header.php" );
     include_once ( URL_DB );
     
     // Request Method를 획득
@@ -50,22 +51,23 @@
     <link href="./css/css.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <p><h1>게시판</h1></p>
-    <hr>
+    <?php include_once( URL_HEADER ) ?>
     <form method="post" action="board_update.php" id="form">
+    <div class="bno">
         <label for="bno">게시글 번호 : </label>
         <input type="text" value="<?php echo $result_info["board_no"] ?>" id="bno" name="board_no" readonly>
-        <br>
+    </div>
+    <div class="title">
         <label for="title">게시글 제목 : </label>
         <input type="text" value="<?php echo $result_info["board_title"] ?>" id="title" name="board_title">
-        <br>
+    </div>
+    <div class="cont">
         <label for="contents">게시글 내용 : </label>
         <input type="text" value="<?php echo $result_info["board_contents"] ?>" id="contents" name="board_contents">
-        <br>
-        
+    </div>
         <button type="submit" class="btn btn-dark">완료</button>
-        <a href='board_detail.php?board_no=<?php echo $result_info["board_no"] ?>' class='btn btn-dark btn'>취소</a>
-        <a href='board_list.php' class='btn btn-dark btn'>목록</a>
+        <button type="button" onclick="location.href='board_detail.php?board_no=<?php echo $result_info['board_no'] ?>'" class="btn btn-dark">취소</a></button>
+        <button type="button" onclick="location.href='board_list.php'" class='btn btn-dark'>목록</button>
     </form>
 </body>
 </html>

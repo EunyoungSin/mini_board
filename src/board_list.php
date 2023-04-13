@@ -1,6 +1,7 @@
 <?php
     define( "DOC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/" );
     define( "URL_DB", DOC_ROOT."mini_board/src/common/db_common.php" );
+    define( "URL_HEADER", DOC_ROOT."mini_board/src/board_header.php" );
     include_once ( URL_DB );
 
 	// GET 체크
@@ -49,9 +50,8 @@
     <link href="./css/css.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <p><h1>게시판</h1></p>
+    <?php include_once( URL_HEADER ) ?>
     <table class="table table-striped">
-        <hr>
         <thead>
             <tr>
                 <th>게시글 번호</th>
@@ -76,22 +76,22 @@
     </table>
 
     <div class="d-flex justify-content-center">
-    <button type="button" onclick="location.href='board_list.php?page_num=1'" class="btn btn-default btn">처음</button>
-    <button type="button" onclick="location.href='board_list.php?page_num=<?php echo $prev_page_num ?>'" class="btn btn-default btn">◀</button>
+    <button type="button" onclick="location.href='board_list.php?page_num=1'" class="btn btn-default">처음</button>
+    <button type="button" onclick="location.href='board_list.php?page_num=<?php echo $prev_page_num ?>'" class="btn btn-default">◀</button>
     <!-- 페이징 번호 -->
     <?php
         for( $i = 1; $i <= $max_page_num; $i++ )
         {
     ?>
-        <a href='board_list.php?page_num=<?php echo $i ?>' class='btn btn-default btn'><?php echo $i ?></a>
+        <a href='board_list.php?page_num=<?php echo $i ?>' class='btn btn-default'><?php echo $i ?></a>
     <?php
         }
     ?>
-    <button type="button" onclick="location.href='board_list.php?page_num=<?php echo $next_page_num ?>'" class="btn btn-default btn">▶</button>
-    <button type="button" onclick="location.href='board_list.php?page_num=<?php echo $max_page_num ?>'" class="btn btn-default btn">끝</button>
+    <button type="button" onclick="location.href='board_list.php?page_num=<?php echo $next_page_num ?>'" class="btn btn-default">▶</button>
+    <button type="button" onclick="location.href='board_list.php?page_num=<?php echo $max_page_num ?>'" class="btn btn-default">끝</button>
     </div>
 
-    <button type="submit" class="btn btn-dark" id="write">글쓰기</button>
+    <button type="button" onclick="location.href='board_insert.php'" class="btn btn-dark" id="write">글쓰기</a></button>
 
 </body>
 </html>

@@ -8,10 +8,15 @@
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2') format('woff2');
 }
 
+#header
+{
+    text-decoration: none;
+    color: white;
+}
+
 body
 {
-    margin: 1.4rem;
-    margin-left: 1.5rem;
+    margin: 1.3rem;
     text-align: center;
     font-family: 'Dovemayo_gothic';
 }
@@ -24,25 +29,37 @@ table
 
 h1 {
     font-family: 'PyeongChangPeace-Bold';
-    padding: 2.5vh 0px;
+    padding: 2vh;
     background-color: #444444;
-    color: #ffffff;
-}
-
-hr
-{
-    margin-top: 1.6rem;
+    margin-bottom: 0.8rem;
 }
 
 tr, td
 {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
 }
 
 td
 {
     width: 20vw;
     vertical-align : middle;
+}
+
+label[for=bno],[for=date],[for=title],[for=contents]
+{
+    font-weight: 800;
+    font-size: 1.05rem;
+}
+
+input
+{
+    font-size: 1.05rem;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    border: 0;
+    outline: none;
+    margin-top: 0.6rem;
 }
 
 #first
@@ -53,31 +70,15 @@ td
 #title_link
 {
     text-decoration: none;
-    color: #444444;
+    color: #212529;
 }
 
 #write
 {
-    margin-top: 0.8rem;
+    margin-top: 1rem;
     float: right;
 }
 
-label
-{
-    font-weight: 800;
-    font-size: 1.1rem;
-}
-
-input
-{
-    font-size: 1.1rem;
-    margin: 0.5rem;
-    width: 80vw;
-    max-width: 800px;
-    text-align: center;
-    border: 0;
-    outline: none;
-}
 
 #bno, #contents
 {
@@ -108,4 +109,15 @@ input
 .btn
 {
     margin: 0.3rem;
+    margin-top: 0.5rem;
+}
+
+.bno, .title, .cont, .date
+{
+    padding: 0.3rem;
+}
+
+.cont
+{
+    margin-bottom: 0.9rem;
 }
