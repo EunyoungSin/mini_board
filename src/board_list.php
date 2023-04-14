@@ -66,8 +66,8 @@
             ?>
                 <tr>
                 <td id="first"><?php echo $recode["board_no"] ?></td>
-                <td><a href="board_detail.php?board_no=<?php echo $recode["board_no"] ?>" id="title_link"><?php echo $recode["board_title"] ?></a></td>
-                <td><?php echo $recode["board_write_date"] ?></td>
+                <td id="second"><a href="board_detail.php?board_no=<?php echo $recode["board_no"] ?>" id="title_link"><?php echo $recode["board_title"] ?></a></td>
+                <td id="third"><?php echo $recode["board_write_date"] ?></td>
                 </tr>
             <?php
                 }
@@ -92,6 +92,5 @@
     </div>
 
     <button type="button" onclick="location.href='board_insert.php'" class="btn btn-dark" id="write">글쓰기</a></button>
-
 </body>
 </html>
