@@ -1,5 +1,5 @@
 <?php
-    define( "DOC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/" );
+    define( "DOC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/" ); // $_SERVER : 슈퍼글로벌 변수 ($_대문자) / 현재 사이트가 위치한 서버상의 위치
     define( "URL_DB", DOC_ROOT."mini_board/src/common/db_common.php" );
     define( "URL_HEADER", DOC_ROOT."mini_board/src/board_header.php" );
     include_once ( URL_DB );
@@ -25,7 +25,7 @@
     $prev_page_num = $page_num - 1 > 0? $page_num - 1 : 1;
     $next_page_num = $page_num + 1 > $max_page_num ? $max_page_num : $page_num + 1;
 
-	// offset
+	// offset : 1페이지일때 게시글번호 0번 부터 시작, 2페이지일때 게시글번호 5번 부터 시작, 3페이지일때 10... 
 	$offset = ( $page_num * $limit_num ) - $limit_num;
 
 	$arr_prepare =

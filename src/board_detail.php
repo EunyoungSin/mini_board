@@ -31,15 +31,15 @@
     </div>
     <div class="date">
         <label for="date">게시된 일자 : </label>
-        <input type="text" value="<?php echo $result_info["board_write_date"] ?>" id="date" name="board_title">
+        <input type="text" value="<?php echo $result_info["board_write_date"] ?>" id="date" name="board_title" readonly>
     </div>
     <div class="title">
         <label for="title">게시글 제목 : </label>
-        <input type="text" value="<?php echo $result_info["board_title"] ?>" id="title" name="board_title">
+        <input type="text" value="<?php echo $result_info["board_title"] ?>" id="title" name="board_title" readonly>
     </div>
     <div class="cont">
         <label for="contents">게시글 내용 : </label>
-        <input type="text" value="<?php echo $result_info["board_contents"] ?>" id="contents" name="board_contents">
+        <input type="text" value="<?php echo $result_info["board_contents"] ?>" id="contents" name="board_contents" readonly>
     </div>
         <button type="button" onclick="location.href='board_update.php?board_no=<?php echo $result_info['board_no'] ?>'" class='btn btn-dark btn'>수정</button>
         <button type="button" onclick="location.href='board_delete.php?board_no=<?php echo $result_info['board_no'] ?>'" class='btn btn-dark btn'>삭제</button>
